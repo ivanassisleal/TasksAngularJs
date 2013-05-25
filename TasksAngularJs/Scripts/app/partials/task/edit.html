@@ -1,0 +1,26 @@
+<div ng-controller="TaskCtrl" ng-init="getsingle()">
+    <fieldset>
+        <legend>Edit</legend>
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">Title</label>
+                <div class="controls">
+                    <input type="text" placeholder="Email" ng-model="task.Title">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="task.Complete">
+                        Complete me
+                    </label>
+                    <div class="form-actions">
+                        <input type="button" class="btn btn-success" ng-click="save(task)" value="Save" />
+                        <a href="#/task/list" class="btn">Back</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>

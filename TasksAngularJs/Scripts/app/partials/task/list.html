@@ -1,0 +1,49 @@
+<div ng-controller="TaskCtrl" ng-init="getall()">
+    <fieldset>
+        <legend>List</legend>
+        <p>
+            <form class="form-inline">
+                <input type="text" class="span4" ng-model="task.Title" />
+                <input type="submit" value="New Task" class="btn btn-primary" ng-click="add(task)" />
+            </form>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="span10">Title</th>
+                    <th class="span2">Complete</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in tasks">
+                    <td>{{task.Title}}</td>
+                    <td>{{task.Complete}}</td>
+                    <td>
+                        <button class="btn" ng-click="edit(task)">edit</button>
+                        <button class="btn btn-danger" ng-click="remove(task)">delete </button>
+                        <button class="btn btn-success" ng-click="done(task)">done </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+    </fieldset>
+
+    <div id="modaldelete" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Delete Task {{task.Title}}</h3>
+        </div>
+        <div class="modal-body">
+            <p>Do you really want to delete this task?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
+            <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" ng-click="cofirmeremove(task)">Yes</button>
+        </div>
+    </div>
+
+</div>
+
+
+
